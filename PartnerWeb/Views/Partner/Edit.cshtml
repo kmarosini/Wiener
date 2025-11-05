@@ -1,0 +1,104 @@
+﻿@model PartnerWeb.Models.Partner
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="d-flex justify-content-center mb-4">
+    <h2>Edit Partner</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName)
+                @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address)
+                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.PartnerNumber)
+                @Html.EditorFor(m => m.PartnerNumber, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                @Html.ValidationMessageFor(m => m.PartnerNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CroatianPIN)
+                @Html.EditorFor(m => m.CroatianPIN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.CroatianPIN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.PartnerTypeId)
+                @Html.DropDownListFor(m => m.PartnerTypeId, ViewBag.PartnerTypes as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PartnerTypeId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CreateByUser)
+                @Html.EditorFor(m => m.CreateByUser, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.CreateByUser, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.IsForeign)
+                <div class="checkbox">
+                    @Html.EditorFor(m => m.IsForeign)
+                    @Html.ValidationMessageFor(m => m.IsForeign, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ExternalCode)
+                @Html.EditorFor(m => m.ExternalCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.ExternalCode, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.GenderTypeId)
+                @Html.DropDownListFor(
+                    m => m.GenderTypeId,
+                    ViewBag.GenderTypes as SelectList,
+                    new { @class = "form-control" }
+                )
+                @Html.ValidationMessageFor(m => m.GenderTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 d-flex justify-content-center">
+            <input type="submit" value="Spremi" class="btn btn-success btn-lg rounded" />
+        </div>
+    </div>
+}
+
+<div class="mt-3">
+    @Html.ActionLink("Povratak", "Index", null, new { @class = "btn btn-primary rounded", style = "text-decoration:none; color:white" })
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
