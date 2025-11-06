@@ -77,7 +77,6 @@ namespace PartnerWeb.Controllers
             return RedirectToAction("Index");
         }
 
-
         public ActionResult Delete(int id)
         {
             _partnerService.DeletePartner(id);
