@@ -29,6 +29,9 @@ namespace PartnerWeb.Services
 
         public void DeletePartner(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException(ValidationConsts.Messages.InvalidInputId, nameof(id));
+
             _partnerRepository.Delete(id);
         }
 
@@ -39,6 +42,9 @@ namespace PartnerWeb.Services
 
         public Partner GetPartnerById(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException(ValidationConsts.Messages.InvalidInputId, nameof(id));
+
             return _partnerRepository.GetById(id);
         }
 
