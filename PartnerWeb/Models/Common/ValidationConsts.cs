@@ -18,6 +18,7 @@
             public const string PartnerNumberLengthInvalid = "Broj partnera se mora sastojati od 20 znakova.";
             public const string CroatianPINInvalid = "Oib mora se mora sastojati od 11 znakova";
             public const string ExternalCodeLengthInvalid = "* minimalnda duljina je 10, a maksimalna 20";
+            public const string InvalidInputId = "ID mora biti veći od 0.";
         };
     }
 }
